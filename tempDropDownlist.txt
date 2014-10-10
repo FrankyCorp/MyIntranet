@@ -1,0 +1,11 @@
+public int SelectedUserRoleId { get; set; }
+public IEnumerable<SelectListItem> UserRoles { get; set; }
+
+UserRoles = Course.CourseXTeachers.Select(
+                    f => new SelectListItem
+					{
+						Value = f.User.FirstName,
+						Text = f.User.Email           
+					});
+
+@Html.DropDownListFor(model => model.SelectedUserRoleId, Model.UserRoles, String.Empty)
